@@ -1,5 +1,5 @@
 from python_rules import Rule
-from _mapping import original_get
+from test_rules_repo_master.python_rulesets.aws_s3_rules._mapping import original_get
 
 # https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html
 HTTP_STATUS_CODES_TO_MONITOR = {

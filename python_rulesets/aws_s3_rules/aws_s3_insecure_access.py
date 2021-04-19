@@ -1,5 +1,5 @@
 from python_rules import Rule, pattern_match
-from _mapping import original_get
+from test_rules_repo_master.python_rulesets.aws_s3_rules._mapping import original_get
 
 
 class AWSS3InsecureAccess(Rule):
