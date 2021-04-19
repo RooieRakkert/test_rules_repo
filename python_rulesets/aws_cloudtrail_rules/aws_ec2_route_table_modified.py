@@ -1,5 +1,5 @@
 from python_rules import Rule, deep_get
-from _mapping import original_get
+from test_rules_repo_master.python_rulesets.aws_cloudtrail_rules._mapping import original_get
 
 # API calls that are indicative of an EC2 Route Table modification
 EC2_RT_MODIFIED_EVENTS = {

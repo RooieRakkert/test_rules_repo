@@ -1,5 +1,5 @@
 from python_rules import Rule
-from _mapping import original_get
+from test_rules_repo_master.python_rulesets.aws_cloudtrail_rules._mapping import original_get
 
 
 class AWSRootAccessKeyCreation(Rule):

@@ -1,5 +1,5 @@
 from python_rules import Rule, deep_get, pattern_match_list
-from _mapping import original_get
+from test_rules_repo_master.python_rulesets.aws_cloudtrail_rules._mapping import original_get
 
 SG_CHANGE_EVENTS = {
     "CreateSecurityGroup": {
