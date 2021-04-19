@@ -1,5 +1,6 @@
 from python_rules import Rule
 
+
 class QuickExecutionofaSeriesofSuspiciousCommands(Rule):
     id = "61ab5496-748e-4818-a92f-de78e20fe7f1"
     title = "Quick Execution of a Series of Suspicious Commands"

@@ -23,7 +23,7 @@ class CloudTrailChanges(Rule):
     def rule(self, e):
         event = original_get(e)
         req_params = deep_get(event, 'requestParameters')
-        self.description = f"CloudTrail [{req_params.get('name', default='<UNKNOWN_NAME>')}] was created/updated"
+        self.description = f"CloudTrail [{req_params.get('name', '<UNKNOWN_NAME>')}] was created/updated"
         event_name = deep_get(event, 'eventName')
 
         return event_name in CLOUDTRAIL_CREATE_UPDATE

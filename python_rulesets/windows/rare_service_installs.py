@@ -1,5 +1,6 @@
 from python_rules import Rule
 
+
 class RareServiceInstalls(Rule):
     id = "66bfef30-22a5-4fcd-ad44-8d81e60922ae"
     title = "Rare Service Installs"

@@ -1,5 +1,6 @@
 from python_rules import Rule
 
+
 class ExecutionviaCLMutexverifiersps12Lines(Rule):
     id = "6609c444-9670-4eab-9636-fe4755a851ce"
     title = "Execution via CL_Mutexverifiers.ps1 (2 Lines)"

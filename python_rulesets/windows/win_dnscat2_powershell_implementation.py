@@ -1,5 +1,6 @@
 from python_rules import Rule
 
+
 class DNSCat2PowershellImplementationDetectionViaProcessCreation(Rule):
     id = "b11d75d6-d7c1-11ea-87d0-0242ac130003"
     title = "DNSCat2 Powershell Implementation Detection Via Process Creation"

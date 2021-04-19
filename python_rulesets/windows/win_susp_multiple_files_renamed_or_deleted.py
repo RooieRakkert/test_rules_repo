@@ -1,5 +1,6 @@
 from python_rules import Rule
 
+
 class SuspiciousMultipleFileRenameOrDeleteOccurred(Rule):
     id = "97919310-06a7-482c-9639-92b67ed63cf8"
     title = "Suspicious Multiple File Rename Or Delete Occurred"

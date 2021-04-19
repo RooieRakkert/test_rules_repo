@@ -1,5 +1,6 @@
 from python_rules import Rule
 
+
 class RareSchtasksCreations(Rule):
     id = "b0d77106-7bb0-41fe-bd94-d1752164d066"
     title = "Rare Schtasks Creations"

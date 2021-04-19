@@ -1,5 +1,6 @@
 from python_rules import Rule
 
+
 class ReconnaissanceActivitywithNetCommand(Rule):
     id = "2887e914-ce96-435f-8105-593937e90757"
     title = "Reconnaissance Activity with Net Command"

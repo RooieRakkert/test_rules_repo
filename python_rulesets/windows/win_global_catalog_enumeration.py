@@ -1,5 +1,6 @@
 from python_rules import Rule
 
+
 class EnumerationviatheGlobalCatalog(Rule):
     id = "619b020f-0fd7-4f23-87db-3f51ef837a34"
     title = "Enumeration via the Global Catalog"

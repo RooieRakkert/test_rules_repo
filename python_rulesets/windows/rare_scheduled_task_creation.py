@@ -1,5 +1,6 @@
 from python_rules import Rule
 
+
 class RareScheduledTaskCreations(Rule):
     id = "b20f6158-9438-41be-83da-a5a16ac90c2b"
     title = "Rare Scheduled Task Creations"

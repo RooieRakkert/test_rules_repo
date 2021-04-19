@@ -22,7 +22,7 @@ class CloudTrailStopped(Rule):
     def rule(self, e):
         event = original_get(e)
         req_params = deep_get(event, 'requestParameters')
-        name = req_params.get('name', default="<UNKNOWN_NAME")
+        name = req_params.get('name', "<UNKNOWN_NAME>")
         self.description = f"CloudTrail [{name}] in account was stopped/deleted"
 
         event_name = deep_get(event, 'eventName')
