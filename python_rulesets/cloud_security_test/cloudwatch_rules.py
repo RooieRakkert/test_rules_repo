@@ -86,35 +86,35 @@ class MultipleFailedLogins(Rule):
         return False
 
 
-class HighNumberActionsComparedToMean(Rule):
-    id = "accce288-d26e-4358-9458-c997043f153a"
-    title = "Large amount of unique actions by user"
-    description = "User's daily amount of unique actions divert more than 2x stddev compared to mean users"
-    author = "Bouke Hendriks"
-    date = "2021/04/07"
-    tags = []
-    status = "experimental"
-    level = "medium"
-
-    def rule(self, e):
-        count_actions = \
-            self.stats.groupby('user.name').windowed('1d').get('count', 'event.action')
-        mean_actions = \
-            self.stats.groupby('user.name').windowed('1d').get('mean_count', 'event.action')
-
-        stddev_actions = \
-            self.stats.groupby('user.name').windowed('1d').get('std_count', 'event.action')
-
-        anom_factor = 2
-        if np.isnan(stddev_actions):
-            return False
-
-        # These limits will be updated on every new instance
-        upper_boundary = mean_actions + (anom_factor * stddev_actions)
-        lower_boundary = mean_actions - (anom_factor * stddev_actions)
-
-        # if count is outside of boundaries we return True
-        return not lower_boundary < count_actions < upper_boundary
+# class HighNumberActionsComparedToMean(Rule):
+#     id = "accce288-d26e-4358-9458-c997043f153a"
+#     title = "Large amount of unique actions by user"
+#     description = "User's daily amount of unique actions divert more than 2x stddev compared to mean users"
+#     author = "Bouke Hendriks"
+#     date = "2021/04/07"
+#     tags = []
+#     status = "experimental"
+#     level = "medium"
+#
+#     def rule(self, e):
+#         count_actions = \
+#             self.stats.groupby('user.name').windowed('1d').get('count', 'event.action')
+#         mean_actions = \
+#             self.stats.groupby('user.name').windowed('1d').get('mean_count', 'event.action')
+#
+#         stddev_actions = \
+#             self.stats.groupby('user.name').windowed('1d').get('std_count', 'event.action')
+#
+#         anom_factor = 2
+#         if np.isnan(stddev_actions):
+#             return False
+#
+#         # These limits will be updated on every new instance
+#         upper_boundary = mean_actions + (anom_factor * stddev_actions)
+#         lower_boundary = mean_actions - (anom_factor * stddev_actions)
+#
+#         # if count is outside of boundaries we return True
+#         return not lower_boundary < count_actions < upper_boundary
 
 
 class UserMultipleIPaddresses(Rule):
@@ -147,30 +147,30 @@ class MultipleAccountsSameIPaddress(Rule):
         return n_unique_users > 3
 
 
-class HighCountServiceProviderByUser(Rule):
-    id = "89924df8-b082-4785-9b09-6a465bf183f1"
-    title = "High use specific service provider"
-    description = "User has a large amount of logs of a certain service provider, " \
-                  "compared to the mean of users for this provider"
-    author = "Bouke Hendriks"
-    date = "2021/04/07"
-    tags = []
-    status = "experimental"
-    level = "medium"
-
-    def rule(self, e):
-        count = \
-            self.stats.groupby('user.name').windowed('1d').get('count', 'event.provider')
-        mean_count = \
-            self.stats.groupby('user.name').windowed('1d').get('mean_count', 'event.provider')
-
-        std_count = \
-            self.stats.groupby('user.name').windowed('1d').get('std_count', 'event.provider')
-
-        anom_factor = 2
-        if np.isnan(std_count):
-            return False
-        return count > (anom_factor*std_count + mean_count)
+# class HighCountServiceProviderByUser(Rule):
+#     id = "89924df8-b082-4785-9b09-6a465bf183f1"
+#     title = "High use specific service provider"
+#     description = "User has a large amount of logs of a certain service provider, " \
+#                   "compared to the mean of users for this provider"
+#     author = "Bouke Hendriks"
+#     date = "2021/04/07"
+#     tags = []
+#     status = "experimental"
+#     level = "medium"
+#
+#     def rule(self, e):
+#         count = \
+#             self.stats.groupby('user.name').windowed('1d').get('count', 'event.provider')
+#         mean_count = \
+#             self.stats.groupby('user.name').windowed('1d').get('mean_count', 'event.provider')
+#
+#         std_count = \
+#             self.stats.groupby('user.name').windowed('1d').get('std_count', 'event.provider')
+#
+#         anom_factor = 2
+#         if np.isnan(std_count):
+#             return False
+#         return count > (anom_factor*std_count + mean_count)
 
 
 class LargeNuniqueServiceProvidersByUser(Rule):
