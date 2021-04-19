@@ -1,4 +1,4 @@
-from python_rules import Rule
+from python_rules import Rule, pattern_match
 from test_rules_repo_master.python_rulesets.aws_s3_rules._mapping import original_get
 
 # https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html
