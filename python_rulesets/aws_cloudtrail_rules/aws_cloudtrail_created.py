@@ -15,7 +15,7 @@ class CloudTrailChanges(Rule):
     title = "CloudTrail changes detected"
     description = "API calls that are indicative of CloudTrail changes within event!"
     author = "Bouke Hendriks"
-    date = "2021/04/08
+    date = "2021/04/08"
     tags = []
     status = "experimental"
     level = "medium"
