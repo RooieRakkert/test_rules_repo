@@ -31,7 +31,7 @@ class ConsoleLoginNoMFA(Rule):
             response_elements.get("ConsoleLogin") == "Success"
             and
             # MFA not in use
-            additional_event_data.get('MFAUsed')
+            additional_event_data.get("MFAUsed") == "No"
             and
             # Ignore SSO login events
             not additional_event_data.get('SamlProviderArn')
