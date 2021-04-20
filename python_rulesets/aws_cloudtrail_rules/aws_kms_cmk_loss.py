@@ -7,7 +7,7 @@ KMS_KEY_TYPE = "AWS::KMS::Key"
 
 
 class KMSCMKLoss(Rule):
-    # src:
+    # src: https://bit.ly/3vb4PcZ
     id = "1f930bb7-33a7-4e68-b4c4-fee736d77bd7"
     title = "AWS KMS CMK Loss"
     description = "AWS KMS CMK Deletion"

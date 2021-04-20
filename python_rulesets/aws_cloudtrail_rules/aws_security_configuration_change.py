@@ -33,7 +33,7 @@ class AWSSecurityConfigChange(Rule):
             return not deep_get(event, "requestParameters", "enable", default=True)
 
         user = deep_get(event, "userIdentity", "userName") or deep_get(
-            event, "userIdentity", "sessionContext", "sessionIssuer", "userName"
+            event, "userIdentity", "sessionContext", "sessionIssuer", "userName", default="<UNKNOWN_USER>"
         )
         self.description = f"Sensitive AWS API call {event.get('eventName')} made by {user}"
 

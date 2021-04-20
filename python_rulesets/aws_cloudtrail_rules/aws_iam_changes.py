@@ -36,4 +36,6 @@ class AWSIAMChanges(Rule):
             return False
 
         event_name = deep_get(event, 'eventName')
+        if not event_name:
+            return False
         return any((event_name.startswith(action) for action in IAM_CHANGE_ACTIONS))

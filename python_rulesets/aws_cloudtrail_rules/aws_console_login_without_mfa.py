@@ -24,7 +24,7 @@ class ConsoleLoginNoMFA(Rule):
 
         additional_event_data = deep_get(event, 'additionalEventData', default={})
         session_context = deep_get(event, 'userIdentity', 'sessionContext', default={})
-        response_elements = deep_get(event, 'responseElements', {})
+        response_elements = deep_get(event, 'responseElements', default={})
 
         return (
             # Only on successful logins
