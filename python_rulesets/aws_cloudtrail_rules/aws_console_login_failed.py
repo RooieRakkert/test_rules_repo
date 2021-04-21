@@ -13,7 +13,7 @@ class ConsoleLoginFailed(Rule):
     status = "experimental"
     level = "medium"
 
-        def rule(self, e):
+    def rule(self, e):
         event = original_get(e)
         accountid = deep_get(event, 'recipientAccountId')
         username = deep_get(event, 'userIdentity', 'userName', default='<UNKNOWN_USER>')
