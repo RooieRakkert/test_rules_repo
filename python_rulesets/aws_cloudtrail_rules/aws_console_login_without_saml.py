@@ -16,7 +16,8 @@ class ConsoleLoginNoSAML(Rule):
     def rule(self, e):
         event = original_get(e)
         account_id = deep_get(event, 'recipientAccountId')
-        self.description = f"AWS logins detected without SAML in account [{account_id}]"
+        username = deep_get(event, 'userIdentity', 'userName', default='<UNKNOWN_USER>')
+        self.description = f"AWS logins detected without SAML in account [{account_id}] by user [{username}]"
 
         event_name = deep_get(event, 'eventName')
         if event_name != 'ConsoleLogin':

@@ -46,6 +46,7 @@ class IAMUserReconDenied(Rule):
                 return True
 
         user_identity = event.get("userIdentity", {})
-        self.description = f"Reconnaissance activity denied to [{user_identity.get('type')}]"
+        username = deep_get(event, 'userIdentity', 'userName', default='<UNKNOWN_USER>')
+        self.description = f"Reconnaissance activity denied to [{user_identity.get('type')}] by user [{username}]"
 
         return False

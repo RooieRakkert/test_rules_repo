@@ -13,10 +13,11 @@ class ConsoleLoginFailed(Rule):
     status = "experimental"
     level = "medium"
 
-    def rule(self, e):
+        def rule(self, e):
         event = original_get(e)
         accountid = deep_get(event, 'recipientAccountId')
-        self.description = f"AWS logins failed in account [{accountid}]"
+        username = deep_get(event, 'userIdentity', 'userName', default='<UNKNOWN_USER>')
+        self.description = f"AWS logins failed in account [{accountid}] by user [{username}]"
 
         event_name = deep_get(event, 'eventName')
         if event_name != 'ConsoleLogin':

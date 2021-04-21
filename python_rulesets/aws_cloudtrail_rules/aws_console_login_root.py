@@ -25,7 +25,8 @@ class RootConsoleLogin(Rule):
 
         account_id = deep_get(event, 'recipientAccountId')
         source_ip = deep_get(event, 'sourceIPAddress')
-        self.description = f"Root AWS logins detected on account [{account_id}] from IP [{source_ip}]"
+        username = deep_get(event, 'userIdentity', 'userName', default='<UNKNOWN_USER>')
+        self.description = f"Root AWS logins detected on account [{account_id}] by user [{username}] from IP [{source_ip}]"
 
         response_elements = deep_get(event, 'responseElements', {})
 

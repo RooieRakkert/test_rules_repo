@@ -17,6 +17,7 @@ class AWSS3BucketDeleted(Rule):
 
     def rule(self, e):
         event = original_get(e)
-        self.description = f"{deep_get(event, 'userIdentity', 'type')} destroyed a bucket"
+        username = deep_get(event, 'userIdentity', 'userName', default='<UNKNOWN_USER>')
+        self.description = f"{deep_get(event, 'userIdentity', 'type')} user [{username}] destroyed a bucket"
 
         return event.get('eventName') in S3_DELETE_ACTIONS and not event.get("errorCode")

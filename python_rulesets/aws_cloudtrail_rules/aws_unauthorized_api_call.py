@@ -31,7 +31,8 @@ class AWSUnauthorizedAPICall(Rule):
         except ValueError:
             return False
 
-        self.description = f"Access denied to {deep_get(event, 'userIdentity', 'type')}"
+        self.description = f"Access denied to {deep_get(event, 'userIdentity', 'type')} \
+         [user: {deep_get(event, 'userIdentity', 'userName', default='<UNKNOWN_USER>')}, arn: {deep_get(event, 'userIdentity', 'arn')}]"
         return (
                 event.get("errorCode") == "AccessDenied" and event.get("eventName") not in EVENT_EXCEPTIONS
         )
