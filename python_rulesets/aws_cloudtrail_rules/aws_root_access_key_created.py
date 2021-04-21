@@ -1,4 +1,4 @@
-from python_rules import Rule
+from python_rules import Rule, deep_get
 from test_rules_repo_master.python_rulesets.aws_cloudtrail_rules._mapping import original_get
 
 
